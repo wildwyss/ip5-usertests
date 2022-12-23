@@ -1,4 +1,4 @@
-# User tests for the IP5 project "Funktionale Standard Library für das Kolibri Web UI Toolkit".
+# User test for the IP5 project "Funktionale Standard Library für das Kolibri Web UI Toolkit".
 
 ## Overview
 First things first: Thanks for doing this user test for our project! 
@@ -52,4 +52,4 @@ In this user test you will build a small image gallery.
 
 ### Test
 1. Follow and solve the TODO items in `userTests.js`.
-2. Fill in the anonymous socrative survey about your experience using this library.
+2. Fill in the [anonymous survey](https://forms.gle/nt5bjjSaXbuGW5fJA) about your experience using this library.

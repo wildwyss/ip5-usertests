@@ -14,11 +14,10 @@ import {
  * @typedef ImageType
  * @property { String } path        - contains the path to /res/img/*.png
  * @property { String } description - contains a text from the {@link descriptions}
- *
  */
 
 /**
- * Placeholder value!
+ * Placeholder value
  */
 const TODO = undefined;
 
@@ -27,7 +26,6 @@ const TODO = undefined;
  * @type { FormatLogMessage }
  */
 const formatLogMsg = context => logLevel => logMessage => {
-  // add a date to the logmessage. In this way you can add information you want to the logmessage.
   const date = new Date().toISOString();
   return `${context}: [${logLevel}] ${date}: ${logMessage}`;
 };
@@ -61,13 +59,14 @@ const displayFocus = ({ path, desc }) => {
 };
 
 /**
- * TODO 1: Create a range with 10 numbers starting with 0. Use {@link Range} for this exercise.
+ * TODO 1: Create a range with 10 numbers starting with 0. Use {@link Range} for this exercise and store it in {@link imagesIds}.
  */
 const imagesIds = TODO;
 
 /**
- * TODO 2: Transform each element of the {@link imagesIds} to an object of {@link ImageType}.
+ * TODO 2: Transform each element of the {@link imagesIds} to an object of type {@link ImageType}.
  * Result: The first object should look like: { path: "/res/img/0.png", desc: "Intelligent and knowledgeable about a particular subject or field."}
+ * Use the array {@link descriptions} to fill the desc property.
  */
 const imageObjects = TODO;
 
@@ -92,7 +91,7 @@ prevButton.onclick = () => {
 /**
  * TODO 6: Create a {@link LoggerType} using the {@link LogFactory} and the {@link formatLogMsg} function.
  * Set the current logger context to "ch.fhnw.usertest".
- * Tip: If you have troubles, consider https://app.gitbook.com/o/BSdwyiSqacZJL2beM7Oh/s/JVfvXGJn8X5cFx3zcFcj/research-paper-ip5-functional-library-in-javascript/logging-framework#usage-via-logfactory
+ * Tip: If you're having troubles, consider https://app.gitbook.com/o/BSdwyiSqacZJL2beM7Oh/s/JVfvXGJn8X5cFx3zcFcj/research-paper-ip5-functional-library-in-javascript/logging-framework#usage-via-logfactory
  *
  */
 const logger = TODO;
@@ -108,7 +107,7 @@ TODO;
 TODO;
 
 /**
- * TODO 9: Create an {@link ConsoleAppender} and add it to the appender list.
+ * TODO 9: Create a {@link ConsoleAppender} and add it to the appender list.
  */
 TODO;
 
