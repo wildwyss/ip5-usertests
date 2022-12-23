@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>IP5 Usertest</title>
+  <title>IP5 User test</title>
 
   <style>
       .image {
-          width: 700px;
-          height: 700px;
+          width: 70%;
+          height: 70%;
+          max-width: 500px;
+          max-height: 500px;
       }
 
       .container {
@@ -24,19 +26,18 @@
       }
   </style>
 
-
 </head>
 <body>
 <h1>Nerd image gallery</h1>
 <div class="container">
   <button id="prevButton">prev</button>
   <div>
-    <img src="res/img/1.png" class="image" id="focusImage">
+    <img src="res/img/1.png" class="image" id="focusImage" alt="image">
     <p id="focusDescription">Description</p>
   </div>
   <button id="nextButton" >next</button>
 </div>
-
+<button id="disableLoggingButton">Disable logging</button>
 
 <script type="module" src="userTest.js"></script>
 </body>

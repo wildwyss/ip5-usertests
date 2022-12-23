@@ -1,42 +1,123 @@
-console.log("hello andri");
+import { Range }                       from "./Kolibri/contrib/p5_wild_wyss/src/range/range.js";
+import { FocusRing }                   from "./Kolibri/contrib/p5_wild_wyss/src/focusring/focusRing.js";
+import { LogFactory }                  from "./Kolibri/contrib/p5_wild_wyss/src/logger/logFactory.js";
+import { Appender as ConsoleAppender } from "./Kolibri/contrib/p5_wild_wyss/src/logger/appender/consoleAppender.js";
+import {
+  setGlobalContext,
+  setLoggingLevel,
+  addToAppenderList,
+  LOG_DEBUG,
+  LOG_NOTHING,
+} from "./Kolibri/contrib/p5_wild_wyss/src/logger/logger.js";
 
+/**
+ * @typedef ImageType
+ * @property { String } path        - contains the path to /res/img/*.png
+ * @property { String } description - contains a text from the {@link descriptions}
+ *
+ */
 
+/**
+ * Placeholder value!
+ */
+const TODO = undefined;
 
+/**
+ * Creates a custom log message using the given parameters.
+ * @type { FormatLogMessage }
+ */
+const formatLogMsg = context => logLevel => logMessage => {
+  // add a date to the logmessage. In this way you can add information you want to the logmessage.
+  const date = new Date().toISOString();
+  return `${context}: [${logLevel}] ${date}: ${logMessage}`;
+};
 
-`
-{
-    "created": 1671791660,
-    "data": [
-        {
-            "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-OpeUIKStY3NNpPGtpt9y6QZF/user-4y4ijxuicwWdoDylYAGEqxQr/img-CVZbPYJUd6KS5heYa6UgYaUi.png?st=2022-12-23T09%3A34%3A20Z&se=2022-12-23T11%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-12-23T10%3A31%3A52Z&ske=2022-12-24T10%3A31%3A52Z&sks=b&skv=2021-08-06&sig=G0ySSquO4f6eMZOuSNNO0UVDIdtjlaDxT1xyiPAVXuc%3D"
-        },
-        {
-            "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-OpeUIKStY3NNpPGtpt9y6QZF/user-4y4ijxuicwWdoDylYAGEqxQr/img-ZqTILo3Gf2xqIptWRKOmEy24.png?st=2022-12-23T09%3A34%3A20Z&se=2022-12-23T11%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-12-23T10%3A31%3A52Z&ske=2022-12-24T10%3A31%3A52Z&sks=b&skv=2021-08-06&sig=ujTWdA8mmjHzBWroCqxzAKvOb%2B5coERjuEcdODEdJec%3D"
-        },
-        {
-            "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-OpeUIKStY3NNpPGtpt9y6QZF/user-4y4ijxuicwWdoDylYAGEqxQr/img-7ERQOc19rx2v9ULnuKkCiLOF.png?st=2022-12-23T09%3A34%3A20Z&se=2022-12-23T11%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-12-23T10%3A31%3A52Z&ske=2022-12-24T10%3A31%3A52Z&sks=b&skv=2021-08-06&sig=VSootuOvpbcnQuxcYY4M87exp8O2Tif86TGtsAbjBLs%3D"
-        },
-        {
-            "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-OpeUIKStY3NNpPGtpt9y6QZF/user-4y4ijxuicwWdoDylYAGEqxQr/img-X3FtMLXuFo0vAbaxRMh46XYr.png?st=2022-12-23T09%3A34%3A20Z&se=2022-12-23T11%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-12-23T10%3A31%3A52Z&ske=2022-12-24T10%3A31%3A52Z&sks=b&skv=2021-08-06&sig=jDwxe%2Bo2lUkwLMeN7pcvRPyuhHGjXdS%2BNoN/uBAUj8I%3D"
-        },
-        {
-            "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-OpeUIKStY3NNpPGtpt9y6QZF/user-4y4ijxuicwWdoDylYAGEqxQr/img-GqHkgccMpc904KygoxLA4JBE.png?st=2022-12-23T09%3A34%3A20Z&se=2022-12-23T11%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-12-23T10%3A31%3A52Z&ske=2022-12-24T10%3A31%3A52Z&sks=b&skv=2021-08-06&sig=4QBn%2B1CMPIsV%2B3AUMu3ICU1eloluGGiGJlYqqJVFBnA%3D"
-        },
-        {
-            "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-OpeUIKStY3NNpPGtpt9y6QZF/user-4y4ijxuicwWdoDylYAGEqxQr/img-sp1lIjuB1i5UQc0Cu42LrNO7.png?st=2022-12-23T09%3A34%3A20Z&se=2022-12-23T11%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-12-23T10%3A31%3A52Z&ske=2022-12-24T10%3A31%3A52Z&sks=b&skv=2021-08-06&sig=CfMGlnHVhCRP3BUuBRE7s2coq5GJFw1DjeFIixlYNpw%3D"
-        },
-        {
-            "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-OpeUIKStY3NNpPGtpt9y6QZF/user-4y4ijxuicwWdoDylYAGEqxQr/img-tp5wRGJa75LkHlUKbQzi5ofD.png?st=2022-12-23T09%3A34%3A20Z&se=2022-12-23T11%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-12-23T10%3A31%3A52Z&ske=2022-12-24T10%3A31%3A52Z&sks=b&skv=2021-08-06&sig=9onWD90Hwtd%2BGJCPjyIfCc7Op4J%2BXhzs/SqzcCGiqXk%3D"
-        },
-        {
-            "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-OpeUIKStY3NNpPGtpt9y6QZF/user-4y4ijxuicwWdoDylYAGEqxQr/img-pwbrtwH8XWWM6qipLjc3rH5a.png?st=2022-12-23T09%3A34%3A20Z&se=2022-12-23T11%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-12-23T10%3A31%3A52Z&ske=2022-12-24T10%3A31%3A52Z&sks=b&skv=2021-08-06&sig=kebDSd7pgfBe5GN8/eD9XPUNNSY/jH/Q%2B4zJxIQsqmg%3D"
-        },
-        {
-            "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-OpeUIKStY3NNpPGtpt9y6QZF/user-4y4ijxuicwWdoDylYAGEqxQr/img-MuMlgYmppBoYRB1LeB6Qk8Jw.png?st=2022-12-23T09%3A34%3A20Z&se=2022-12-23T11%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-12-23T10%3A31%3A52Z&ske=2022-12-24T10%3A31%3A52Z&sks=b&skv=2021-08-06&sig=kaoDoGTzf4VjcxhnJgs5dksVID2A1kJWa0DANQB5GkU%3D"
-        },
-        {
-            "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-OpeUIKStY3NNpPGtpt9y6QZF/user-4y4ijxuicwWdoDylYAGEqxQr/img-cYQ73b5Mstyf06XEimgY8gkn.png?st=2022-12-23T09%3A34%3A20Z&se=2022-12-23T11%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-12-23T10%3A31%3A52Z&ske=2022-12-24T10%3A31%3A52Z&sks=b&skv=2021-08-06&sig=H8ZLCCcS0h0H7RbiZwOW85%2BbNbcdpLYMqmWFRXoTCd0%3D"
-        }
-    ]
-}
-`;
+const imageElement          = document.getElementById("focusImage");
+const prevButton            = document.getElementById("prevButton");
+const nextButton            = document.getElementById("nextButton");
+const disableLoggingButton  = document.getElementById("disableLoggingButton");
+const descriptionElement    = document.getElementById("focusDescription");
+
+const descriptions = [
+  "Intelligent and knowledgeable about a particular subject or field.",
+  "Highly skilled and proficient in the use of computers and technology.",
+  "Interested in and enthusiastic about scientific and technical topics.",
+  "Able to understand and explain complex or technical information in a clear and concise manner.",
+  "Often perceived as being socially awkward or introverted.",
+  "Have a strong passion for learning and intellectual pursuits.",
+  "Known for their attention to detail and ability to think critically.",
+  "May be seen as lacking in physical coordination or athletic ability.",
+  "Tend to be organized and orderly in their work habits.",
+  "May have a strong interest in science fiction, fantasy, or other nerdy pop culture phenomena.",
+];
+
+/**
+ * Updates the UI Elements corresponding to the focus.
+ * @param { ImageType } - the current focus
+ */
+const displayFocus = ({ path, desc }) => {
+  imageElement.src = path;
+  descriptionElement.innerText = desc;
+};
+
+/**
+ * TODO 1: Create a range with 10 numbers starting with 0. Use {@link Range} for this exercise.
+ */
+const imagesIds = TODO;
+
+/**
+ * TODO 2: Transform each element of the {@link imagesIds} to an object of {@link ImageType}.
+ * Result: The first object should look like: { path: "/res/img/0.png", desc: "Intelligent and knowledgeable about a particular subject or field."}
+ */
+const imageObjects = TODO;
+
+/**
+ * TODO 3: Create a {@link FocusRing} containing the {@link imageObjects}.
+ */
+let ring = TODO;
+
+/**
+ * TODO 4: Move the focus to the right and update the displayed image using {@link displayFocus}.
+ */
+nextButton.onclick = () => {
+  TODO;
+};
+
+/**
+ * TODO 5: Move the focus to the left and update the displayed image using {@link displayFocus}.
+ */
+prevButton.onclick = () => {
+  TODO;
+};
+/**
+ * TODO 6: Create a {@link LoggerType} using the {@link LogFactory} and the {@link formatLogMsg} function.
+ * Set the current logger context to "ch.fhnw.usertest".
+ * Tip: If you have troubles, consider https://app.gitbook.com/o/BSdwyiSqacZJL2beM7Oh/s/JVfvXGJn8X5cFx3zcFcj/research-paper-ip5-functional-library-in-javascript/logging-framework#usage-via-logfactory
+ *
+ */
+const logger = TODO;
+
+/**
+ * TODO 7: Set the global logging context to "ch.fhnw"
+ */
+TODO;
+
+/**
+ * TODO 8: Set the global logging level to {@link LOG_DEBUG}.
+ */
+TODO;
+
+/**
+ * TODO 9: Create an {@link ConsoleAppender} and add it to the appender list.
+ */
+TODO;
+
+/**
+ * TODO 10: Clicks on the {@link nextButton} and {@link prevButton} buttons should be logged on level debug.
+ * TODO 11: {@link displayFocus} should log the updated image path on level debug.
+ */
+
+/**
+ * TODO 12: Set the current log level to {@link LOG_NOTHING}, when the disable button has been clicked.
+ */
+disableLoggingButton.onclick = () => TODO;
