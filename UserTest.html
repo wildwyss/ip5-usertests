@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IP5 Usertest</title>
+
+  <style>
+      .image {
+          width: 700px;
+          height: 700px;
+      }
+
+      .container {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+      }
+
+      button {
+          height: 20px;
+      }
+      p {
+          text-align: center;
+      }
+  </style>
+
+
+</head>
+<body>
+<h1>Nerd image gallery</h1>
+<div class="container">
+  <button id="prevButton">prev</button>
+  <div>
+    <img src="res/img/1.png" class="image" id="focusImage">
+    <p id="focusDescription">Description</p>
+  </div>
+  <button id="nextButton" >next</button>
+</div>
+
+
+<script type="module" src="userTest.js"></script>
+</body>
+</html>
