@@ -6,10 +6,8 @@
 
   <style>
       .image {
-          width: 70%;
           height: 70%;
-          max-width: 500px;
-          max-height: 500px;
+          max-height: 350px;
       }
 
       .container {
@@ -19,24 +17,31 @@
       }
 
       button {
-          height: 20px;
+          display: block;
       }
+
       p {
           text-align: center;
+      }
+
+      main {
+          display: inline-block;
       }
   </style>
 
 </head>
 <body>
 <h1>Nerd image gallery</h1>
-<div class="container">
-  <button id="prevButton">prev</button>
-  <div>
-    <img src="res/img/1.png" class="image" id="focusImage" alt="image">
-    <p id="focusDescription">Description</p>
+<main>
+  <div class="container">
+    <button id="prevButton">prev</button>
+    <div>
+      <img src="res/img/1.png" class="image" id="focusImage" alt="image">
+    </div>
+    <button id="nextButton">next</button>
   </div>
-  <button id="nextButton" >next</button>
-</div>
+  <p id="focusDescription">Description</p>
+</main>
 <button id="disableLoggingButton">Disable logging</button>
 
 <script type="module" src="userTest.js"></script>
