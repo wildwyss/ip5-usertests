@@ -21,15 +21,6 @@ import {
  */
 const TODO = undefined;
 
-/**
- * Creates a custom log message using the given parameters.
- * @type { FormatLogMessage }
- */
-const formatLogMsg = context => logLevel => logMessage => {
-  const date = new Date().toISOString();
-  return `${context}: [${logLevel}] ${date}: ${logMessage}`;
-};
-
 const imageElement          = document.getElementById("focusImage");
 const prevButton            = document.getElementById("prevButton");
 const nextButton            = document.getElementById("nextButton");
@@ -88,35 +79,39 @@ nextButton.onclick = () => {
 prevButton.onclick = () => {
   TODO;
 };
+
+
 /**
  * TODO 6: Create a {@link LoggerType} using the {@link LogFactory} and the {@link formatLogMsg} function.
  * Set the current logger context to "ch.fhnw.usertest".
  * Tip: If you're having troubles, consider https://app.gitbook.com/o/BSdwyiSqacZJL2beM7Oh/s/JVfvXGJn8X5cFx3zcFcj/research-paper-ip5-functional-library-in-javascript/logging-framework#usage-via-logfactory
  *
+ * Creates a custom log message using the given parameters.
+ * @type { FormatLogMessage }
  */
+const formatLogMsg = context => logLevel => logMessage => {
+  const date = new Date().toISOString();
+  return `${context}: [${logLevel}] ${date}: ${logMessage}`;
+};
+
 const logger = TODO;
 
 /**
- * TODO 7: Set the global logging context to "ch.fhnw"
+ * TODO 7: Set the global logging level to {@link LOG_DEBUG} with {@link setLoggingLevel}.
  */
 TODO;
 
 /**
- * TODO 8: Set the global logging level to {@link LOG_DEBUG}.
+ * TODO 8: Create a {@link ConsoleAppender} and add it to the appender list.
  */
 TODO;
 
 /**
- * TODO 9: Create a {@link ConsoleAppender} and add it to the appender list.
- */
-TODO;
-
-/**
- * TODO 10: Clicks on the {@link nextButton} and {@link prevButton} buttons should be logged on level debug.
- * TODO 11: {@link displayFocus} should log the updated image path on level debug.
+ * TODO 9: Clicks on the {@link nextButton} and {@link prevButton} buttons should be logged on level debug.
+ * TODO 10: {@link displayFocus} should log the updated image path on level warn.
  */
 
 /**
- * TODO 12: Set the current log level to {@link LOG_NOTHING}, when the disable button has been clicked.
+ * TODO 11: Set the current log level to {@link LOG_NOTHING}, when the disable button has been clicked.
  */
 disableLoggingButton.onclick = () => TODO;
