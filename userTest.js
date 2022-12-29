@@ -50,31 +50,35 @@ const displayFocus = ({ path, desc }) => {
 };
 
 /**
- * TODO 1: Create a range with 10 numbers starting with 0. Use {@link Range} for this exercise and store it in {@link imagesIds}.
+ * TODO 1.1: Create a range with 10 numbers starting with 0. Use {@link Range} for this exercise and store it in {@link imagesIds}.
  */
 const imagesIds = TODO;
 
 /**
- * TODO 2: Transform each element of the {@link imagesIds} to an object of type {@link ImageType}.
+ * TODO 1.2: Transform each element of the {@link imagesIds} to an object of type {@link ImageType}.
  * Result: The first object should look like: { path: "/res/img/0.png", desc: "Intelligent and knowledgeable about a particular subject or field."}
  * Use the array {@link descriptions} to fill the desc property.
  */
 const imageObjects = TODO;
 
 /**
- * TODO 3: Create a {@link FocusRing} containing the {@link imageObjects}.
+ * TODO 1.3: Create a {@link FocusRing} containing the {@link imageObjects}.
  */
 let ring = TODO;
 
 /**
- * TODO 4: Move the focus to the right and update the displayed image using {@link displayFocus}.
+ * TODO 1.4: Move the focus to the right and update the displayed image using {@link displayFocus}.
+ * Note: a focusring is an immutable data structure.
+ *
  */
 nextButton.onclick = () => {
   TODO;
 };
 
 /**
- * TODO 5: Move the focus to the left and update the displayed image using {@link displayFocus}.
+ * TODO 1.5: Move the focus to the left and update the displayed image using {@link displayFocus}.
+ *
+ * After this todo, you finished part 1 of the user test, thank you!
  */
 prevButton.onclick = () => {
   TODO;
@@ -82,10 +86,12 @@ prevButton.onclick = () => {
 
 
 /**
- * TODO 6: Create a {@link LoggerType} using the {@link LogFactory} and the {@link formatLogMsg} function.
+ * TODO 2.1: Create a {@link LoggerType} using the {@link LogFactory} and the {@link formatLogMsg} function.
  * Set the current logger context to "ch.fhnw.usertest".
  * Tip: If you're having troubles, consider https://app.gitbook.com/o/BSdwyiSqacZJL2beM7Oh/s/JVfvXGJn8X5cFx3zcFcj/research-paper-ip5-functional-library-in-javascript/logging-framework#usage-via-logfactory
- *
+ */
+
+/**
  * Creates a custom log message using the given parameters.
  * @type { FormatLogMessage }
  */
@@ -97,21 +103,21 @@ const formatLogMsg = context => logLevel => logMessage => {
 const logger = TODO;
 
 /**
- * TODO 7: Set the global logging level to {@link LOG_DEBUG} with {@link setLoggingLevel}.
+ * TODO 2.2: Set the global logging level to {@link LOG_DEBUG} with {@link setLoggingLevel}.
  */
 TODO;
 
 /**
- * TODO 8: Create a {@link ConsoleAppender} and add it to the appender list.
+ * TODO 2.3: Create a {@link ConsoleAppender} and add it to the appender list.
  */
 TODO;
 
 /**
- * TODO 9: Clicks on the {@link nextButton} and {@link prevButton} buttons should be logged on level debug.
- * TODO 10: {@link displayFocus} should log the updated image path on level warn.
+ * TODO 2.4: Clicks on the {@link nextButton} and {@link prevButton} buttons should be logged on level debug.
+ * TODO 2.5: {@link displayFocus} should log the updated image path on level warn.
  */
 
 /**
- * TODO 11: Set the current log level to {@link LOG_NOTHING}, when the disable button has been clicked.
+ * TODO 2.6: Set the current log level to {@link LOG_NOTHING}, when the disable button has been clicked.
  */
 disableLoggingButton.onclick = () => TODO;

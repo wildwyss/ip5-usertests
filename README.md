@@ -53,3 +53,5 @@ In this user test you will build a small image gallery.
 ### Test
 1. Follow and solve the TODO items in `userTests.js`.
 2. Fill in the [anonymous survey](https://forms.gle/nt5bjjSaXbuGW5fJA) about your experience using this library.
+
+_Note_: This framework uses es6 modules. Therefore you need to start a local dev server.
