@@ -88,7 +88,7 @@ prevButton.onclick = () => {
 /**
  * TODO 2.1: Create a {@link LoggerType} using the {@link LogFactory} and the {@link formatLogMsg} function.
  * Set the current logger context to "ch.fhnw.usertest".
- * Tip: If you're having troubles, consider https://app.gitbook.com/o/BSdwyiSqacZJL2beM7Oh/s/JVfvXGJn8X5cFx3zcFcj/research-paper-ip5-functional-library-in-javascript/logging-framework#usage-via-logfactory
+ * Tip: If you're having troubles, consider https://wildwyss.gitbook.io/ip5-funktionale-standard-library-fuer-kolibri/research-paper-ip5-functional-library-in-javascript/logging-framework
  */
 
 /**

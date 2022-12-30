@@ -8,9 +8,11 @@ Please read carefully through this document before starting with the test.
 
 ## Contents of the IP5 project
 This project consists of three parts:
-1. Iterator & range
-2. FocusRing
-3. Logging framework
+1. [Iterator & range](https://wildwyss.gitbook.io/ip5-funktionale-standard-library-fuer-kolibri/research-paper-ip5-functional-library-in-javascript/iterator)
+2. [FocusRing](https://wildwyss.gitbook.io/ip5-funktionale-standard-library-fuer-kolibri/research-paper-ip5-functional-library-in-javascript/focusring)
+3. [Logging framework](https://wildwyss.gitbook.io/ip5-funktionale-standard-library-fuer-kolibri/research-paper-ip5-functional-library-in-javascript/logging-framework)
+
+_Note:_ Consider the examples under these links if you're having troubles solving the TODOs.
 
 These parts are explained in the next section:
 ### Iterator & range
@@ -44,6 +46,7 @@ In this user test you will build a small image gallery.
 
 * You will have to write some code: Everywhere this is needed, a placeholder `TODO` is used.
 * All you need is already imported in the according file. So you do not have to worry about this :).
+* If you're having troubles solving the TODOs, consider the examples in our documentation.
 
 ### Setup
 1. Clone this repo
