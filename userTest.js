@@ -52,27 +52,28 @@ const displayFocus = ({ path, desc }) => {
 /**
  * TODO 1.1: Create a range with 10 numbers starting with 0. Use {@link Range} for this exercise and store it in {@link imagesIds}.
  */
-const imagesIds = TODO;
+const imagesIds = Range(9);
 
 /**
  * TODO 1.2: Transform each element of the {@link imagesIds} to an object of type {@link ImageType}.
  * Result: The first object should look like: { path: "/res/img/0.png", desc: "Intelligent and knowledgeable about a particular subject or field."}
  * Use the array {@link descriptions} to fill the desc property.
  */
-const imageObjects = TODO;
-
+const imageObjects = /** @type IteratorType<ImageType> */ imagesIds.map(id =>
+    ({ path: `/res/img/${id}.png`, desc: descriptions[id] }));
 /**
  * TODO 1.3: Create a {@link FocusRing} containing the {@link imageObjects}.
  */
-let ring = TODO;
-
+let ring = FocusRing(imageObjects);
 /**
  * TODO 1.4: Move the focus to the right and update the displayed image using {@link displayFocus}.
  * Note: a focusring is an immutable data structure.
  *
  */
 nextButton.onclick = () => {
-  TODO;
+  logger.debug("next clicked");
+  ring = ring.right();
+  displayFocus(ring.focus());
 };
 
 /**
@@ -81,9 +82,10 @@ nextButton.onclick = () => {
  * After this todo, you finished part 1 of the user test, thank you!
  */
 prevButton.onclick = () => {
-  TODO;
+  logger.debug("previous clicked");
+  ring = ring.left();
+  displayFocus(ring.focus());
 };
-
 
 /**
  * TODO 2.1: Create a {@link LoggerType} using the {@link LogFactory} and the {@link formatLogMsg} function.
@@ -100,17 +102,17 @@ const formatLogMsg = context => logLevel => logMessage => {
   return `${context}: [${logLevel}] ${date}: ${logMessage}`;
 };
 
-const logger = TODO;
+const logger = LogFactory("ch.fhnw.usertest")(formatLogMsg);
 
 /**
  * TODO 2.2: Set the global logging level to {@link LOG_DEBUG} with {@link setLoggingLevel}.
  */
-TODO;
+setGlobalContext("ch.fhnw");
 
 /**
  * TODO 2.3: Create a {@link ConsoleAppender} and add it to the appender list.
  */
-TODO;
+addToAppenderList(ConsoleAppender());
 
 /**
  * TODO 2.4: Clicks on the {@link nextButton} and {@link prevButton} buttons should be logged on level debug.
@@ -120,4 +122,4 @@ TODO;
 /**
  * TODO 2.6: Set the current log level to {@link LOG_NOTHING}, when the disable button has been clicked.
  */
-disableLoggingButton.onclick = () => TODO;
+disableLoggingButton.onclick = () => setLoggingLevel(LOG_NOTHING);
