@@ -1,5 +1,5 @@
-import {maybeNotNullAndUndefined} from "../../maybe/maybe";
-import {chainMaybe, foldMaybe} from "../box";
+import {maybeNotNullAndUndefined} from "../../maybe/maybe.js";
+import {chainMaybe, foldMaybe} from "../box.js";
 
 const openSite = () =>{
     if(current_user){
