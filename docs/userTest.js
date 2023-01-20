@@ -60,7 +60,7 @@ const imagesIds = Range(9);
  * Use the array {@link descriptions} to fill the desc property.
  */
 const imageObjects = /** @type IteratorType<ImageType> */ imagesIds.map(id =>
-    ({ path: `/res/img/${id}.png`, desc: descriptions[id] }));
+    ({ path: `res/img/${id}.png`, desc: descriptions[id] }));
 /**
  * TODO 1.3: Create a {@link FocusRing} containing the {@link imageObjects}.
  */
